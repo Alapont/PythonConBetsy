@@ -17,8 +17,9 @@ Proyecto para enseñar python
   - [ ] diccionario
   - [ ] tipo complejo: clases y objetos
 - [ ] Control de flujo
-  - [ ] if then else
-  - [ ] for (each)
+  - [X] if then else
+  - [X] for (each)
   - [ ] when
   - [ ] try catch
 - [ ] estadística
+- [ ] Búcle de lectura
