@@ -1,4 +1,6 @@
 import random
+from string import Template
+import os
 
 def piedraPapelTijera(jugador1,jugador2):
     solucionesJ1={
@@ -22,16 +24,30 @@ def piedraPapelTijera(jugador1,jugador2):
 
 
 def preguntarJugador():
-    return "papel"
+    print("Elige \"piedra\",\"papel\" o \"tijeras\"\n> ",end='')
+    eleccion=input()
+    return eleccion
     #aqui preguntaremos al jugador, pero ahora ha decididio que papel
 
 def preguntarMaquina():
     eleccionMaquina=random.choice(["piedra","papel","tijera"])
     return eleccionMaquina
 
+
+clear=lambda: os.system('clear')
+clear()
+
+eleccionJugador=preguntarJugador()
+eleccionMaquina=preguntarMaquina()
+resultado=piedraPapelTijera(
+    eleccionJugador,
+    eleccionMaquina
+)
+salida=Template("Has elegido: $jugador, la maquina ha elegido: $maquina.\n El resultado es $resultado")
 print(
-    piedraPapelTijera(
-        preguntarJugador(),
-        preguntarMaquina()
+    salida.substitute(
+        jugador=eleccionJugador,
+        maquina=eleccionMaquina,
+        resultado=resultado
     )
 )
