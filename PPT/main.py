@@ -33,21 +33,39 @@ def preguntarMaquina():
     eleccionMaquina=random.choice(["piedra","papel","tijera"])
     return eleccionMaquina
 
-
-clear=lambda: os.system('clear')
-clear()
-
-eleccionJugador=preguntarJugador()
-eleccionMaquina=preguntarMaquina()
-resultado=piedraPapelTijera(
-    eleccionJugador,
-    eleccionMaquina
-)
-salida=Template("Has elegido: $jugador, la maquina ha elegido: $maquina.\n El resultado es $resultado")
-print(
-    salida.substitute(
-        jugador=eleccionJugador,
-        maquina=eleccionMaquina,
-        resultado=resultado
+def jugar(): #bucle principal de jugar
+    eleccionJugador=preguntarJugador()
+    eleccionMaquina=preguntarMaquina()
+    resultado=piedraPapelTijera(
+        eleccionJugador,
+        eleccionMaquina
     )
-)
+    salida=Template("Has elegido: $jugador, la maquina ha elegido: $maquina.\n El resultado es $resultado")
+    print(
+        salida.substitute(
+            jugador=eleccionJugador,
+            maquina=eleccionMaquina,
+            resultado=resultado
+        )
+    )
+
+salida = False
+while not(salida):
+    print("puedes \"jugar\" o \"salir\"\n> ",end='')
+    lectura = input ()
+    if (lectura=="salir"):
+        print("Adeus")
+        salida=True
+    elif (lectura=="jugar"):
+        jugar()        
+    else:
+        print ("no entiendo "+lectura)
+
+#fin de while
+
+"""
+Read
+Eval
+Print
+Loop
+"""
