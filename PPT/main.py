@@ -22,7 +22,6 @@ def piedraPapelTijera(jugador1,jugador2):
     }
     return solucionesJ1[jugador1][jugador2]
 
-
 def preguntarJugador():
     print("Elige \"piedra\",\"papel\" o \"tijeras\"\n> ",end='')
     eleccion=input()
@@ -40,6 +39,15 @@ def jugar(): #bucle principal de jugar
         eleccionJugador,
         eleccionMaquina
     )
+
+    # if resultado == "gana":
+    #     partidas["gana"] += 1
+    # elif resultado == "empate":
+    #     partidas["empate"] += 1
+    # else: # "pierde"
+    #     partidas["pierde"] += 1
+    partidas[resultado] += 1
+
     salida=Template("Has elegido: $jugador, la maquina ha elegido: $maquina.\n El resultado es $resultado")
     print(
         salida.substitute(
@@ -49,8 +57,21 @@ def jugar(): #bucle principal de jugar
         )
     )
 
+partidas={
+    "gana":0,
+    "empate":0,
+    "pierde":0
+}
+contador=Template("G:$ganadas E:$empatadas P:$perdidas")
 salida = False
 while not(salida):
+    print(
+        contador.substitute(
+            ganadas=partidas["gana"],
+            empatadas=partidas["empate"],
+            perdidas=partidas["pierde"]
+        )
+    )
     print("puedes \"jugar\" o \"salir\"\n> ",end='')
     lectura = input ()
     if (lectura=="salir"):
@@ -62,10 +83,3 @@ while not(salida):
         print ("no entiendo "+lectura)
 
 #fin de while
-
-"""
-Read
-Eval
-Print
-Loop
-"""
