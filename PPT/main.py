@@ -25,11 +25,28 @@ def piedraPapelTijera(jugador1,jugador2):
 def preguntarJugador():
     print("Elige \"piedra\",\"papel\" o \"tijeras\"\n> ",end='')
     eleccion=input()
+    jugadas[eleccion] += 1
     return eleccion
-    #aqui preguntaremos al jugador, pero ahora ha decididio que papel
+    preguntarMaquinaRandom()
 
 def preguntarMaquina():
+    # usar el que tiene menos valores de jugadas
+    if jugadas ["tijera"] > jugadas ["papel"] :
+        # papel y piedra
+        if jugadas ["papel"] > jugadas ["piedra"] :
+            return "piedra" 
+        else : 
+            return "papel"
+    else :
+        # tijeras o  piedra
+        if jugadas ["tijera"] > jugadas ["piedra"]:
+            return "piedra"
+        else:
+            return "tijera"
+
+def preguntarMaquinaRandom():
     eleccionMaquina=random.choice(["piedra","papel","tijera"])
+    # el que tenga menos partidas de eleccionJugador
     return eleccionMaquina
 
 def jugar(): #bucle principal de jugar
@@ -57,6 +74,11 @@ def jugar(): #bucle principal de jugar
         )
     )
 
+jugadas={
+    "piedra":0,
+    "papel":0,
+    "tijera":0
+}
 partidas={
     "gana":0,
     "empate":0,
