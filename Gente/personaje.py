@@ -1,3 +1,3 @@
 # PERSONAJE
-def foo () :
-    print ("foo personaje")
+def foo():
+    print("foo personaje")
