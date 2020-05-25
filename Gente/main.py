@@ -15,10 +15,7 @@ def escupir(persona):
 
 for nombre in nombres:
     print(nombre)
-    aux = persona.Persona(nombre)
-    if (nombre == "Betsy"):
-        aux.presentacion = Template(
-            "hallo, ich bin $nombre und ich hasse $calcetines Socken")
+    aux = persona.Persona(nombre,idioma='de')
 
     lista.append(aux)
 
