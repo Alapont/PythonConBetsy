@@ -23,5 +23,3 @@ class Discoteca:
         else:
             print("no hay mas hueco")
 
-
-print("fin de pruebas")

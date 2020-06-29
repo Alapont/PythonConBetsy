@@ -1,31 +1,19 @@
 import persona
+from discoteca import Discoteca
 from string import Template
 # Usamos personas
 
 nombres = ["Pepe", "Juan", "Dieter", "Kinþaswinþs",
            "Бладимир Путин", "Obama", "TechnoViking", "Betsy"]
-lista = []
-hain = []
-
-
-def escupir(persona):
-    # print("heute leider nicht +persona.nombre)
-    print("Que te jodan "+persona.nombre)
-
+hain = Discoteca(nombre="Hain")
+# otraDiscoteca=Discoteca()
 
 for nombre in nombres:
     print(nombre)
     aux = persona.Persona(nombre,idioma='de')
+    hain.añadirColaEntrar(aux)
 
-    lista.append(aux)
+for tic in range(0, 18):
+    print(tic)
+    hain.intentarPasar()
 
-for p in lista:
-    p.presentate()
-    if (p.colorDeCalcetines != "blanco"):
-        hain.append(p)
-    else:
-        escupir(p)
-
-# En Hain solo hay gente sin calcetines blancos
-
-pass
